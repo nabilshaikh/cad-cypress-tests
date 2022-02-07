@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://gitlab.com/nabilshaikh26/cad-cypress-tests/issues"
   },
-  "homepage": "https://gitlab.com/nabilshaikh26/cad-cypress-tests#readme"
+  "homepage": "https://gitlab.com/nabilshaikh26/cad-cypress-tests#readme",
+  "devDependencies": {
+    "cypress": "^9.4.1"
+  }
 }
