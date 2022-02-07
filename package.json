@@ -1,0 +1,19 @@
+{
+  "name": "cad-cypress-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/nabilshaikh26/cad-cypress-tests.git"
+  },
+  "author": "nabil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/nabilshaikh26/cad-cypress-tests/issues"
+  },
+  "homepage": "https://gitlab.com/nabilshaikh26/cad-cypress-tests#readme"
+}
