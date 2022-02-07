@@ -16,12 +16,23 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
-module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
-const cucumber = require('cypress-cucumber-preprocessor').default
+export default (on, config) => {
+  // config cucumber
+  const cucumber = require('cypress-cucumber-preprocessor').default;
+  const browserify = require('@cypress/browserify-preprocessor');
 
-module.exports = (on, config) => {
-  on('file:preprocessor', cucumber())
+  // setup Typescript
+  const options = browserify.defaultOptions;
+  options.browserifyOptions.plugin.unshift(['tsify', { project: '../tsconfig.json' }]);
+
+  on('file:preprocessor', cucumber(options));
+
+  return {
+    ...config,
+    fixturesFolder: 'cypress/fixtures',
+    integrationFolder: 'cypress/integration',
+    screenshotsFolder: 'cypress/screenshots',
+    videosFolder: 'cypress/videos',
+    supportFile: 'cypress/support/index.js',
+  };
 };
