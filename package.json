@@ -17,6 +17,10 @@
   },
   "homepage": "https://gitlab.com/nabilshaikh26/cad-cypress-tests#readme",
   "devDependencies": {
-    "cypress": "^9.4.1"
+    "cypress": "^9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
