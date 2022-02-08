@@ -24,6 +24,7 @@ And('parameter with key {string} and value {string}', (key, value) => {
 });
 
 And('verify response count to equal {string}', (count) => {
+  // encapsulated the api request call
   searchCloseApproachObjects(httpMethod, baseURL, searchParams).then((response) => {
     expect(response.body.count).to.equal(count);
   });

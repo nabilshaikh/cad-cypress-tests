@@ -6,8 +6,8 @@
 import { identity, pickBy } from 'lodash';
 
 export const searchCloseApproachObjects = (httpMethod: string, baseURL: string, searchParams: any) => {
-  const urlParams = pickBy(searchParams, identity);
-  const urlSearchParams = new URLSearchParams(urlParams);
+  const urlParams = pickBy(searchParams, identity); // filtering out the search params object
+  const urlSearchParams = new URLSearchParams(urlParams); // capturing query string of a URL
   return cy
     .request(httpMethod, `${baseURL}?${urlSearchParams}`)
     .then((response) => {
