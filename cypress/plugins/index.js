@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="cypress" />
+/// <reference types="@shelex/cypress-allure-plugin" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -18,6 +19,9 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+
 export default (on, config) => {
   // config cucumber
   const cucumber = require('cypress-cucumber-preprocessor').default;
@@ -28,6 +32,7 @@ export default (on, config) => {
   options.browserifyOptions.plugin.unshift(['tsify', { project: '../tsconfig.json' }]);
 
   on('file:preprocessor', cucumber(options));
+  allureWriter(on, config);
 
   return {
     ...config,

@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "lint": "eslint --fix --ext .js,.vue,.ts --ignore-path .gitignore ."
+    "cy:run": "cypress run --env allure=true",
+    "lint": "eslint --fix --ext .js,.vue,.ts --ignore-path .gitignore .",
+    "allure:report:clear": "rm -rf allure-results --if-present && rm -rf allure-report --if-present",
+    "allure:report:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:report:open": "allure open allure-report",
+    "cy:run:report": "npm run allure:report:clear && npm run cy:run || npm run allure:report:generate && npm run allure:report:generate"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   "homepage": "https://gitlab.com/nabilshaikh26/cad-cypress-tests#readme",
   "devDependencies": {
     "@cypress/browserify-preprocessor": "^3.0.1",
+    "@shelex/cypress-allure-plugin": "^2.26.2",
     "@types/cypress-cucumber-preprocessor": "^1.14.1",
     "@types/lodash": "^4.14.178",
     "@types/node": "^14.0.13",
