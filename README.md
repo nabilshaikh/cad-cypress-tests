@@ -1,92 +1,96 @@
-# cad-cypress-tests
+# CAD-Cypress-Tests
 
+This Cypress based sample API tests project is implemented with the help of TypeScript and uses the BDD approach.
 
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+**Folder Structure:**
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/nabilshaikh26/cad-cypress-tests.git
-git branch -M main
-git push -uf origin main
+
+├── allure-report (folder to support and generate allure based HTML report)
+├── allure-results (contains all the tests results in json format)
+├── cypress
+│   └── specs (feature files)
+|   └── step-definitions (tests code)
+│   └── support (contains all the supporting tests files)
+│   └── screenshots (capture screenshots on failure)
+└── cypress.json (cypress global configuration)
+└── testReport.html (mochawesome based HTML report)
+
 ```
+Note: allure-report & allure-results directories will get generated after the first run.
 
-## Integrate with your tools
+**Salient Features:**
 
-- [ ] [Set up project integrations](https://gitlab.com/nabilshaikh26/cad-cypress-tests/-/settings/integrations)
+- Based on Cucumber / Gherkin standard.
+- Cross-browser platform.
+- Fully automated and provide both console and HTML report.
+- Ability to take screenshot on failure.
+- All tests are configured on CI/CD pipeline, hence doesn't require any manual intervention to run tests.
+- Containerized the tests using Docker. This extends the ['cypress/included'](https://hub.docker.com/r/cypress/included) base image.
 
-## Collaborate with your team
+**Installation**:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+- Clone the project
+- Open terminal and run `npm install`
 
-## Test and Deploy
+**Running Tests**:
 
-Use the built-in continuous integration in GitLab.
+(A) Headed Mode:
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+- To run tests in browser/headed mode, run `npm run cy:open`
 
-***
+(B) Headless Mode:
 
-# Editing this README
+- To run tests in headless mode, <br>
+        * `npm run cy:run` - run tests locally. <br>
+        * `npm run cy:run:report` - run tests locally + generates the allure report. <br>
+        * `npm run cy:run:report:open` - run tests locally + generates the allure report + opens the report automatically in browser using [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). <br>
+        * `npm run cy:run:docker` - run tests in Docker container. <br>
+        * `npm run cy:run:docker:report` - run tests in Docker container + generates the allure report. <br>
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+<ins>Note</ins>:- To view allure based HTML report, expand `allure-report` directory and open the `index.html` file using Live Server.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Once the execution is complete, this is how the test report(s) would look like,
 
-## Name
-Choose a self-explaining name for your project.
+<ins>Console</ins>:
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+<kbd><img src="/uploads/8b9e33a83f547e2c1c5b550cd374123c/cad_console.png" alt="Console Report" border="1" width=800></kbd>
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+<ins>HTML - Pass</ins>: 
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+<kbd><img src="/uploads/6cca51f40e6650c51cc4b006ad4920ef/cad-report-pass-1.png" alt="HTML Report" border="1" width=800></kbd>
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+<kbd><img src="/uploads/db2102c3f176e0981f1ca3516a34a8e9/cad-report-pass-2.png" alt="HTML Report" border="1" width=800></kbd>
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+<ins>HTML - Fail</ins>: 
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+<kbd><img src="/uploads/5ffdac7aee62b552e72170678190d067/cad-report-fail-1.png" alt="HTML Report" border="1" width=800></kbd>
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+<kbd><img src="/uploads/ed5ea315b48f6e1aa11e51ce074ecbe3/cad-report-fail-2.png" alt="HTML Report" border="1" width=800></kbd>
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+<kbd><img src="/uploads/9c999dd8945054c6363c74e7219107b4/cad-report-fail-3.png" alt="HTML Report" border="1" width=800></kbd>
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+# (A) Testing strategy
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+The goal of test automation is to increase the effectiveness and efficiency of testing. Good automation makes testing faster, more systematic, and reduces human error. This includes: to reduce the number of test cases that testers have to perform manually as well as those that are challenging to perform manually, therefore saving time and effort.
 
-## License
-For open source projects, say how it is licensed.
+The ideal test automation strategy is to follow the [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) mindset. Though this project is simply for a demonstration purpose. However, the test pyramid is a way of thinking about how different kinds of automated tests should be used to create a balanced portfolio. The whole point is to offer immediate feedback to ensure that code changes do not disrupt existing features. This would essentially help both developers and QAs to create high-quality software. It reduces the time required for developers to identify if a change they introduced breaks the code.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This test automation pyramid mainly operates at three levels: Unit, Integration & UI.
+
+<kbd><img src="/uploads/35ea89b86a8a8b1f3ec44aca86be0f7e/pyramid2.png" alt="Test Pyramid" border="1" width=500></kbd>
+
+
+1. <ins>**Unit tests**</ins> form the base of the test pyramid. They should be frequent, and they should run fast.
+
+2. <ins>**Integration tests**</ins> are the middle tier of the pyramid. These tests focus on interactions of your code with the outside world, such as databases and external services or microservices.
+3.	<ins>**UI tests**</ins> top the test pyramid. They’re written from the perspective of a user and should test that your entire application is functioning from front-end to back-end.
+
+<br></br>
+**Why to use test pyramid?**
+
+- Pyramid help QAs to define right priorities. If test scripts are written with a greater focus on the UI, then chances are that core business logic and back-end functionality is not sufficiently verified periodically. Hence, this affects product quality and leads to more work for the team.
+- As TAT (turnaround time) of UI tests is high, it leads to lower test coverage overall. By adopting the pyramid, such situations can be completely avoided, and QAs can focus on writing quality tests keeping in mind all the 3 layers defined.
+- Frequent collaboration between 3 Amigos (i.e. Developer, Tester & Product Owner)
+- Since the pyramid is built to run the complex tests at the beginning, testers can manage time better, get better results and essentially make life easier for everyone involved. Therefore, it emphasize speed and efficacy.
