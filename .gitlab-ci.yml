@@ -1,0 +1,15 @@
+stages:
+- test_on_qa
+cypress_test_on_qa:
+  allow_failure: true
+  stage: test_on_qa
+  script:
+  - npm install
+  - npm run cy:run:report
+  tags:
+  - api-tests
+  artifacts:
+    when: always
+    paths:
+      - allure-report
+      - allure-results

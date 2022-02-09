@@ -24,6 +24,7 @@ Note: allure-report & allure-results directories will get generated after the fi
 - Cross-browser platform.
 - Fully automated and provides both console and HTML report using [Allure](https://www.npmjs.com/package/@shelex/cypress-allure-plugin).
 - Ability to take screenshots on failure.
+- Ability to attach failed step screenshot on report.
 - All tests are configured on CI/CD pipeline, hence doesn't require any manual intervention to run tests.
 - Containerized the tests using Docker. This extends the ['cypress/included'](https://hub.docker.com/r/cypress/included) base image.
 
