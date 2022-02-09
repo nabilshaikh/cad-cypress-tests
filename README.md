@@ -14,7 +14,6 @@ This Cypress based sample API tests project is implemented with the help of Type
 │   └── support (contains all the supporting tests files)
 │   └── screenshots (capture screenshots on failure)
 └── cypress.json (cypress global configuration)
-└── testReport.html (mochawesome based HTML report)
 
 ```
 Note: allure-report & allure-results directories will get generated after the first run.
@@ -23,8 +22,8 @@ Note: allure-report & allure-results directories will get generated after the fi
 
 - Based on Cucumber / Gherkin standard.
 - Cross-browser platform.
-- Fully automated and provide both console and HTML report.
-- Ability to take screenshot on failure.
+- Fully automated and provides both console and HTML report using [Allure](https://www.npmjs.com/package/@shelex/cypress-allure-plugin).
+- Ability to take screenshots on failure.
 - All tests are configured on CI/CD pipeline, hence doesn't require any manual intervention to run tests.
 - Containerized the tests using Docker. This extends the ['cypress/included'](https://hub.docker.com/r/cypress/included) base image.
 
@@ -54,21 +53,21 @@ Once the execution is complete, this is how the test report(s) would look like,
 
 <ins>Console</ins>:
 
-<kbd><img src="/uploads/8b9e33a83f547e2c1c5b550cd374123c/cad_console.png" alt="Console Report" border="1" width=800></kbd>
+<kbd><img src="/uploads/fa0897c8b7d83bc0593e0e2bfdb3a84c/cad_console.png" alt="Console Report" border="1" width=800></kbd>
 
 <ins>HTML - Pass</ins>: 
 
-<kbd><img src="/uploads/6cca51f40e6650c51cc4b006ad4920ef/cad-report-pass-1.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="/uploads/fcc28c1f585bf87333f6d96e005089a3/cad-report-pass-1.png" alt="HTML Report" border="1" width=800></kbd>
 
-<kbd><img src="/uploads/db2102c3f176e0981f1ca3516a34a8e9/cad-report-pass-2.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="/uploads/7c36098faca0dd121fc5bdea74e95c5f/cad-report-pass-2.png" alt="HTML Report" border="1" width=800></kbd>
 
 <ins>HTML - Fail</ins>: 
 
-<kbd><img src="/uploads/5ffdac7aee62b552e72170678190d067/cad-report-fail-1.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="/uploads/ee89b1a54263f7293cfa22933f86449a/cad-report-fail-1.png" alt="HTML Report" border="1" width=800></kbd>
 
-<kbd><img src="/uploads/ed5ea315b48f6e1aa11e51ce074ecbe3/cad-report-fail-2.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="/uploads/cf0a5267f6b1c3199a79250a12c0f338/cad-report-fail-2.png" alt="HTML Report" border="1" width=800></kbd>
 
-<kbd><img src="/uploads/9c999dd8945054c6363c74e7219107b4/cad-report-fail-3.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="/uploads/6cdea207f538cdd6ae9edde2cc21b8f6/cad-report-fail-3.png" alt="HTML Report" border="1" width=800></kbd>
 
 
 # (A) Testing strategy
@@ -79,8 +78,7 @@ The ideal test automation strategy is to follow the [Test Pyramid](https://marti
 
 This test automation pyramid mainly operates at three levels: Unit, Integration & UI.
 
-<kbd><img src="/uploads/35ea89b86a8a8b1f3ec44aca86be0f7e/pyramid2.png" alt="Test Pyramid" border="1" width=500></kbd>
-
+<kbd><img src="/uploads/ddd691f2b84f5fcdc394d03dc86fef89/Test_pyramid.png" alt="Test Pyramid" border="1" width=500></kbd>
 
 1. <ins>**Unit tests**</ins> form the base of the test pyramid. They should be frequent, and they should run fast.
 
