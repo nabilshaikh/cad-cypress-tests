@@ -10,7 +10,7 @@ As a product manager, I want an API to be created which returns close-approach d
         * parameter with key 'date-min' and value '2021-01-01'
         * parameter with key 'date-max' and value '2021-12-31'
         * parameter with key 'body' and value '<bodies>'
-        * verify response count to equal '1594'
+        * verify response count to equal 1594
     
     Examples:
 
@@ -25,4 +25,4 @@ As a product manager, I want an API to be created which returns close-approach d
         * parameter with key 'date-max' and value '2021-12-31'
         * parameter with key 'body' and value 'Earth'
         * parameter with key 'limit' and value '1'
-        * verify response count to equal '1'
+        * verify response count to equal 1

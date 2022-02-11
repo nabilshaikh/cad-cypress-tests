@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run --env allure=true",
+    "start": "./node_modules/.bin/json-server ./cypress/fixtures/apiCAD.json --port 7081 --quiet",
+    "open": "cypress open",
+    "cy:open":"start-test 7081 open",
+    "cy:run": "cypress run --env allure=true --spec 'cypress/specs/*'",
     "lint": "eslint --fix --ext .js,.vue,.ts --ignore-path .gitignore .",
     "allure:report:clear": "rm -rf allure-results --if-present && rm -rf allure-report --if-present",
     "allure:report:generate": "allure generate allure-results --clean -o allure-report",
     "allure:report:open": "allure open allure-report",
     "cy:run:report": "npm run allure:report:clear && npm run cy:run || npm run allure:report:generate && npm run allure:report:generate",
     "cy:run:report:open": "npm run allure:report:clear && npm run cy:run || npm run allure:report:generate && npm run allure:report:generate && npm run allure:report:open",
-    "cy:run:docker": "docker run -it -v $PWD:/e2e -w /e2e --entrypoint=cypress cypress/included:8.3.0 run --env allure=true",
-    "cy:run:docker:report": "npm run allure:report:clear && npm run cy:run:docker || npm run allure:report:generate && npm run allure:report:generate"
+    "cy:run:docker": "docker run -it -v $PWD:/e2e -w /e2e --entrypoint=cypress cypress/included:8.3.0 run --env allure=true --spec 'cypress/specs/*'",
+    "cy:run:docker:report": "npm run allure:report:clear && npm run cy:run:docker || npm run allure:report:generate && npm run allure:report:generate",
+    "unit": "cypress run --spec 'cypress/unit/*'",
+    "cy:run:unit":"start-test 7081 unit"
   },
   "repository": {
     "type": "git",
@@ -33,6 +37,7 @@
     "@types/node": "^14.0.13",
     "cypress": "^9.4.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
+    "start-server-and-test": "^1.14.0",
     "tsify": "^4.0.2",
     "typescript": "^4.5.5"
   },
@@ -49,7 +54,8 @@
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-react-hooks": "^4.0.0"
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "json-server": "^0.17.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,

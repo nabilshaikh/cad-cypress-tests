@@ -37,7 +37,7 @@ export default (on, config) => {
   return {
     ...config,
     fixturesFolder: 'cypress/fixtures',
-    integrationFolder: 'cypress/specs',
+    integrationFolder: 'cypress/',
     screenshotsFolder: 'cypress/screenshots',
     videosFolder: 'cypress/videos',
     supportFile: 'cypress/support/index.js',
