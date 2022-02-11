@@ -14,7 +14,6 @@
     "esModuleInterop":true
   },
   "include": [
-    "**/*.ts", "cypress/plugins/index.js", "cypress/support/index.js",
-    "../node_modules/@shelex/cypress-allure-plugin/reporter"
+    "**/*.ts", "cypress/plugins/index.js", "cypress/support/index.js"
   ]
 }
