@@ -28,7 +28,7 @@ Note: allure-report & allure-results directories will get generated after the fi
 - Ability to take screenshots on failure.
 - Ability to attach failed step screenshot on allure report.
 - Ability to retry failed tests to help reduce test flakiness.
-- All tests are configured on CI/CD pipeline, hence doesn't require any manual intervention to run tests.
+- All tests are configured on CI/CD pipeline, hence doesn't require any manual intervention to run tests. The job generates an allure report in the form of an artifact. You can [download](https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html#download-job-artifacts) job artifacts or view the job archive.
 - Containerized the tests using Docker. This extends the ['cypress/included'](https://hub.docker.com/r/cypress/included) base image. It run tests using a [single docker command](https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/).
 
 **Installation**:
