@@ -1,5 +1,16 @@
 stages:
-- test_on_qa
+  - test_on_devint
+  - test_on_qa
+
+cypress_test_on_devint:
+  allow_failure: true
+  stage: test_on_devint
+  script:
+  - npm install
+  - npm run cy:run:unit
+  tags:
+  - api-tests
+
 cypress_test_on_qa:
   allow_failure: true
   stage: test_on_qa
