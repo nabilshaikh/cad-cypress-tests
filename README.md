@@ -1,6 +1,6 @@
 # CAD-Cypress-Tests
 
-This Cypress based sample API tests project is implemented with the help of TypeScript and uses the BDD approach. This project will test the Californian Institute of Technology’s (CIT) SBDB Close-Approach Data API. Documentation of the API can be found [here](https://ssd-api.jpl.nasa.gov/doc/cad.html).
+This Cypress based sample API tests project is implemented with the help of TypeScript and uses the [BDD](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor) approach. This project will test the Californian Institute of Technology’s (CIT) SBDB Close-Approach Data API. Documentation of the API can be found [here](https://ssd-api.jpl.nasa.gov/doc/cad.html).
 
 **Folder Structure:**
 
@@ -28,7 +28,6 @@ Note: allure-report & allure-results directories will get generated after the fi
 - Ability to take screenshots on failure.
 - Ability to attach failed step screenshot on allure report.
 - Ability to retry failed tests to help reduce test flakiness.
-- All tests are configured on CI/CD pipeline, hence doesn't require any manual intervention to run tests. The job generates an allure report in the form of an artifact. You can [download](https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html#download-job-artifacts) job artifacts or view the job archive.
 - Containerized the tests using Docker. This extends the ['cypress/included'](https://hub.docker.com/r/cypress/included) base image. It run tests using a [single docker command](https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/).
 
 **Installation**:
@@ -61,21 +60,21 @@ Once the execution is complete, this is how the test report(s) would look like,
 
 <ins>Console</ins>:
 
-<kbd><img src="/uploads/fa0897c8b7d83bc0593e0e2bfdb3a84c/cad_console.png" alt="Console Report" border="1" width=800></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153707831-d22bd77f-e2e2-4ea8-9848-493f7c6e5abb.png" alt="Console Report" border="1" width=800></kbd>
 
 <ins>HTML - Pass</ins>: 
 
-<kbd><img src="/uploads/fcc28c1f585bf87333f6d96e005089a3/cad-report-pass-1.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153707839-6e1b2270-ec29-4c0a-b1c6-426f9ee230e5.png" alt="HTML Report" border="1" width=800></kbd>
 
-<kbd><img src="/uploads/7c36098faca0dd121fc5bdea74e95c5f/cad-report-pass-2.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153707840-7a61daf1-6ac2-499f-9117-6ea5e37a8600.png" alt="HTML Report" border="1" width=800></kbd>
 
 <ins>HTML - Fail</ins>: 
 
-<kbd><img src="/uploads/ee89b1a54263f7293cfa22933f86449a/cad-report-fail-1.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153707832-13647647-8d70-429b-a26a-46b529189f9d.png" alt="HTML Report" border="1" width=800></kbd>
 
-<kbd><img src="/uploads/cf0a5267f6b1c3199a79250a12c0f338/cad-report-fail-2.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153707835-bc70cb7a-13f8-49d4-b962-2b03a73444bb.png" alt="HTML Report" border="1" width=800></kbd>
 
-<kbd><img src="/uploads/6cdea207f538cdd6ae9edde2cc21b8f6/cad-report-fail-3.png" alt="HTML Report" border="1" width=800></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153707838-cf800616-e347-4794-8db9-fa089df65266.png" alt="HTML Report" border="1" width=800></kbd>
 
 
 # (A) Testing strategy
@@ -86,7 +85,7 @@ The ideal test automation strategy is to follow the [Test Pyramid](https://marti
 
 This test automation pyramid mainly operates at three levels: Unit, Integration & UI.
 
-<kbd><img src="/uploads/ddd691f2b84f5fcdc394d03dc86fef89/Test_pyramid.png" alt="Test Pyramid" border="1" width=500></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/58862186/153708018-2e182576-6697-43de-a726-d5f32b4a6a19.png" alt="Test Pyramid" border="1" width=500></kbd>
 
 1. <ins>**Unit tests**</ins> form the base of the test pyramid. They should be frequent, and they should run fast.
 
