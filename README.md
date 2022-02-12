@@ -1,6 +1,6 @@
 # CAD-Cypress-Tests
 
-This Cypress based sample API tests project is implemented with the help of TypeScript and uses the BDD approach.
+This Cypress based sample API tests project is implemented with the help of TypeScript and uses the BDD approach. This project will test the Californian Institute of Technology’s (CIT) SBDB Close-Approach Data API. Documentation of the API can be found [here](https://ssd-api.jpl.nasa.gov/doc/cad.html).
 
 **Folder Structure:**
 
@@ -33,25 +33,26 @@ Note: allure-report & allure-results directories will get generated after the fi
 
 **Installation**:
 
-- Clone the project
-- Open terminal and run `npm install`
+- Clone the project.
+- Open terminal and run `npm install`.
 
 **Running Tests**:
 
 (A) Headed Mode:
 
-- To run tests in browser/headed mode, run `npm run cy:open`
+- To run tests in browser/headed mode, run `npm run cy:open` command in terminal. This will open an interactive cypress test runner.
 
 (B) Headless Mode:
 
 - To run tests in headless mode, <br>
-        * `npm run cy:open` - opens interactive cypress test runner. <br>
         * `npm run cy:run` - run tests locally. <br>
         * `npm run cy:run:report` - run tests locally + generates the allure report. <br>
         * `npm run cy:run:report:open` - run tests locally + generates the allure report + opens the report automatically in browser using [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). <br>
+        * `npm run cy:run:unit` - run unit tests locally. <br>
         * `npm run cy:run:docker` - run tests in Docker container. <br>
         * `npm run cy:run:docker:report` - run tests in Docker container + generates the allure report. <br>
-
+        **(To view all possible commands, navigate to 'package.json' file in the project.)**
+        
 <ins>Note</ins>:-<br>
 1) Please make sure Docker client is installed and running on your machine when running tests via docker.
 2) To view allure based HTML report, expand `allure-report` directory and open the `index.html` file using Live Server.</br>
